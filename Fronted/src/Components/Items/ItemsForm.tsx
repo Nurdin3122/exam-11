@@ -36,7 +36,7 @@ const ItemsForm = () => {
         e.preventDefault();
         try {
             await dispatch(postItems(newItem))
-            navigate('/ShowTracks');
+            navigate('/');
         } catch(error) {
             console.log(error);
         }

@@ -1,6 +1,15 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ItemMutation} from "../../Types.ts";
+import {Item, ItemMutation} from "../../Types.ts";
 import axiosApi from "../../AxiosApi/AxiosApi.ts";
+
+
+export const getItems = createAsyncThunk<Item[]>(
+    "items/getItems",
+    async () => {
+        const response = await axiosApi.get<Item[] | []>("/items");
+        return response.data || []
+    }
+)
 
 export const postItems = createAsyncThunk(
     "items/postItems",

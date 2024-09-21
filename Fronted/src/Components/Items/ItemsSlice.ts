@@ -1,7 +1,7 @@
 import {Item} from "../../Types.ts";
 import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store.ts";
-import {postItems} from "./ItemsThunks.ts";
+import {getItems, postItems} from "./ItemsThunks.ts";
 
 export interface ItemsState {
     items:Item[];
@@ -28,6 +28,19 @@ export const ItemsSlice = createSlice<ItemsState>({
             state.itemsLoading = false;
         });
         builder.addCase(postItems.rejected,(state) => {
+            state.itemsLoading = false;
+            state.itemsError = true
+        });
+
+        builder.addCase(getItems.pending,(state) => {
+            state.itemsLoading = true;
+            state.itemsError = false
+        });
+        builder.addCase(getItems.fulfilled,(state,{payload:items}) => {
+            state.items = items
+            state.itemsLoading = false;
+        });
+        builder.addCase(getItems.rejected,(state) => {
             state.itemsLoading = false;
             state.itemsError = true
         });

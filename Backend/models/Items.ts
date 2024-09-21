@@ -12,7 +12,6 @@ export const ItemsSchema = new Schema({
     },
     image: {
         type:String,
-        required: true,
     },
     seller:{
         type:Schema.Types.ObjectId,

@@ -5,13 +5,13 @@ import config from "./config";
 import usersRouter from "./routers/usersRouter";
 import itemsRouter from "./routers/ItemsRouter";
 import categoriesRouter from "./routers/categoriesRoute";
+import path from "path";
 
 
 const app = express();
 const port = 8030;
 
-
-app.use(express.static('public'));
+app.use(express.static(path.join(config.publicPath, 'images')));
 app.use(cors());
 app.use(express.json());
 app.use('/users',usersRouter);

@@ -5,6 +5,7 @@ import Header from "./Container/Header/Header.tsx";
 import LogInUser from "./Components/Users/LogInUser.tsx";
 import CreateUserForm from "./Components/Users/CreateUser.tsx";
 import ItemsForm from "./Components/Items/ItemsForm.tsx";
+import Items from "./Components/Items/BlocksItems/Items.tsx";
 
 const App = () => (
     <>
@@ -17,8 +18,9 @@ const App = () => (
                 <Route path="/create-user-form" element={<CreateUserForm/>}/>
                 <Route path="/check-user-form" element={<LogInUser/>}/>
                 <Route path="/items-form" element={<ItemsForm/>}/>
+                <Route path="/items" element={<Items/>}/>
 
-                {/*<Route path="*" element={<h3 className="mt-5 text-center">There is not such route</h3>}/>*/}
+                <Route path="*" element={<h3 className="mt-5 text-center">There is not such route</h3>}/>
             </Routes>
         </main>
     </>
