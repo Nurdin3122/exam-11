@@ -21,7 +21,7 @@ const ItemsForm = () => {
     const categories = useAppSelector(categoriesState);
 
     useEffect(() => {
-        dispatch(getCategories(newItem));
+        dispatch(getCategories());
     }, [dispatch]);
 
 
@@ -99,7 +99,8 @@ const ItemsForm = () => {
                         name="category"
                         value={newItem.category}
                         onChange={onChange}
-                        required>
+                        required
+                >
                     <option value="" disabled>Open this select menu</option>
                     {categories.map(category => (
                         <option key={category._id} value={category._id}>{category.title}</option>

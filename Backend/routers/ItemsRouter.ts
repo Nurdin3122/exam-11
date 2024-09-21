@@ -16,7 +16,7 @@ itemsRouter.get("/",async (req,res) => {
 });
 
 itemsRouter.post("/",auth,imagesUpload.single('image'),async (req,res) => {
-    if (!req.body.title || !req.body.price || !req.body.description) {
+    if (!req.body.title) {
         return res.status(400).send({error: 'All fields are required'});
     }
     const user = (req as RequestWithUser).user;
@@ -37,7 +37,6 @@ itemsRouter.post("/",auth,imagesUpload.single('image'),async (req,res) => {
 
     try {
         await item.save();
-        console.log(item)
         return res.status(201).send(item);
     } catch (error) {
         return res.status(400).send(error);

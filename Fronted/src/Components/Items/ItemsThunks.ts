@@ -20,20 +20,17 @@ export const postItems = createAsyncThunk(
         if (!token) {
             throw new Error('User not authenticated');
         }
-
         const formData = new FormData();
         const keys = Object.keys(items) as (keyof ItemMutation)[];
         keys.forEach(key => {
             const value = items[key];
             formData.append(key, value);
         });
-
         const response = await axiosApi.post("/items",formData,{
             headers: {
                 Authorization: `${token.token}`,
             }
         });
         return response.data
-
     }
 )

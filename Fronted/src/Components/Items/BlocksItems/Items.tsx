@@ -20,7 +20,7 @@ const Items = () => {
                     <Spinner/>
                 ) : (
                     items.map(item => (
-                        <ItemCard _id={item._id} title={item.title} description={item.description} image={item.image} seller={item.seller} category={item.category} price={item.price}/>
+                        <ItemCard key={item._id} _id={item._id} title={item.title} description={item.description} image={item.image} seller={item.seller} category={item.category} price={item.price}/>
 
                     ))
                 )
