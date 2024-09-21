@@ -3,6 +3,8 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import config from "./config";
 import usersRouter from "./routers/usersRouter";
+import itemsRouter from "./routers/ItemsRouter";
+import categoriesRouter from "./routers/categoriesRoute";
 
 
 const app = express();
@@ -13,6 +15,8 @@ app.use(express.static('public'));
 app.use(cors());
 app.use(express.json());
 app.use('/users',usersRouter);
+app.use("/items",itemsRouter);
+app.use("/categories",categoriesRouter);
 
 
 const run = async () => {

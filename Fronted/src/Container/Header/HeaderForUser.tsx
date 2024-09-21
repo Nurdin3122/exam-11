@@ -20,7 +20,7 @@ const HeaderForUser:React.FC<Props> = ({user}) => {
                     <Link to="/" className="navbar-brand mb-0 h1">Flea Market</Link>
                     <div className="justify-content-end">
                         <span className="me-5">Hello: {user.username}</span>
-                        <button className="btn btn-dark ms-3">Add a new item</button>
+                        <Link to="/items-form" className="btn btn-dark ms-3">Add a new item</Link>
                         <button className="btn btn-close-white" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>

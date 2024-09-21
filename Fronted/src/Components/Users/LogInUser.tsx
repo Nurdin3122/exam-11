@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {useAppDispatch} from "../../app/hooks.ts";
 import {useNavigate} from "react-router-dom";
-import {UserMutation} from "../../Types.ts";
+import {UserMutationFroLogIn} from "../../Types.ts";
 import {userCheckPostRequest} from "./UsersThunks.ts";
 
 const LogInUser = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const [newUser, setNewUser] = useState<UserMutation>({
+    const [newUser, setNewUser] = useState<UserMutationFroLogIn>({
         username:"",
         password:"",
     });
@@ -35,7 +35,7 @@ const LogInUser = () => {
             <h3 className="mt-5 text-center">Log in</h3>
             <form onSubmit={onSend}>
 
-                <h5 className="mt-5 text-center">Write your name</h5>
+                <h5 className="mt-5 text-center">your username</h5>
                 <div className="input-group input-group-lg">
                     <input type="text"
                            className="form-control mt-5"

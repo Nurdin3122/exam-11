@@ -7,10 +7,13 @@ import {userPostRequest} from "./UsersThunks.ts";
 const emptyState:UserMutation =  {
     username:"",
     password:"",
+    displayName:"",
+    phoneNumber:"",
 }
 
 const CreateUserForm = () => {
     const [newUser, setNewUser] = useState<UserMutation>(emptyState);
+    console.log(newUser)
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -39,7 +42,7 @@ const CreateUserForm = () => {
             <h3 className="mt-5 text-center">Create a account</h3>
             <form onSubmit={onSend}>
 
-                <h5 className="mt-5 text-center">Write your name</h5>
+                <h5 className="mt-5 text-center">your username</h5>
                 <div className="input-group input-group-lg">
                     <input type="text"
                            className="form-control mt-5"
@@ -63,6 +66,34 @@ const CreateUserForm = () => {
                            id="password"
                            onChange={onChange}
                            value={newUser.password}
+                           required
+                    />
+                </div>
+
+                <h5 className="mt-5 text-center">Create a name</h5>
+                <div className="input-group input-group-lg">
+                    <input type="text"
+                           className="form-control mt-5"
+                           aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-lg"
+                           name="displayName"
+                           id="displayName"
+                           onChange={onChange}
+                           value={newUser.displayName}
+                           required
+                    />
+                </div>
+
+                <h5 className="mt-5 text-center">Your phone number</h5>
+                <div className="input-group input-group-lg">
+                    <input type="text"
+                           className="form-control mt-5"
+                           aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-lg"
+                           name="phoneNumber"
+                           id="phoneNumber"
+                           onChange={onChange}
+                           value={newUser.phoneNumber}
                            required
                     />
                 </div>

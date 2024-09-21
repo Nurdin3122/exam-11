@@ -2,6 +2,8 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {UserReducer} from "../Components/Users/UsersSlice.ts";
 import storage from "redux-persist/lib/storage";
 import {FLUSH,PAUSE,PERSIST,PURGE,REGISTER,REHYDRATE,persistReducer,persistStore} from "redux-persist";
+import {ItemsReducer} from "../Components/Items/ItemsSlice.ts";
+import {CategoriesReducer} from "../Components/Categories/CategoriesSlice.ts";
 
 const usersPersistConfig = {
     key: 'flea-market:user',
@@ -10,6 +12,8 @@ const usersPersistConfig = {
 };
 
 const rootReducer = combineReducers({
+    items:ItemsReducer,
+    categories:CategoriesReducer,
     user: persistReducer(usersPersistConfig, UserReducer),
 });
 

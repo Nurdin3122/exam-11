@@ -23,6 +23,16 @@ const UserSchema = new Schema<UserFields,UserModel, UserMethods>({
         type:String,
         default: null,
         unique:false,
+    },
+    displayName: {
+        type:String,
+        required:true,
+        unique:false,
+    },
+    phoneNumber: {
+        type:String,
+        required:true,
+        unique:false,
     }
 });
 
